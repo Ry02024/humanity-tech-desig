@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>共感型ソリューション | ヒューマニティ・テック・デザイン</title>
+    <meta name="description" content="単なる効率化ではなく、孤独を解消し繋がりを育む、人間味あふれるデジタル製品とサービス。">
+    
+    <!-- Google Fonts: 高級感のある明朝体と可読性の高いゴシック体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#4B0082', // 指定テーマカラー
+                            light: '#6A0DAD',
+                            dark: '#320056',
+                            accent: '#D4AF37', // 高級感のあるゴールドアクセント
+                        },
+                        surface: '#F9FAFB',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        serif: ['"Zen Old Mincho"', 'serif'],
+                    },
+                    letterSpacing: {
+                        widest: '.15em',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* カスタムスタイル */
+        body {
+            font-feature-settings: "palt";
+        }
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        
+        /* 画像のオーバーレイグラデーション */
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.8) 0%, rgba(20, 20, 20, 0.6) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-slate-800 font-sans antialiased selection:bg-brand-primary selection:text-white">
+
+    <!-- 1. ナビゲーションバー -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- ロゴ -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <div class="w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center text-white font-serif">H</div>
+                    <span class="font-serif text-lg text-gray-900 tracking-widest font-bold">ヒューマニティ・テック・デザイン</span>
+                </div>
+                
+                <!-- PCメニュー -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-sm font-medium text-gray-500 hover:text-brand-primary transition-colors tracking-wider">ミッション</a>
+                    <a href="#" class="text-sm font-medium text-gray-500 hover:text-brand-primary transition-colors tracking-wider">ソリューション</a>
+                    <a href="#" class="text-sm font-medium text-gray-500 hover:text-brand-primary transition-colors tracking-wider">ストーリー</a>
+                    <a href="#" class="px-5 py-2 text-sm font-medium text-white bg-brand-primary rounded-full hover:bg-brand-dark transition-all shadow-md hover:shadow-lg">お問い合わせ</a>
+                </div>
+
+                <!-- モバイルハンバーガーメニュー（視覚的要素のみ） -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-500 hover:text-gray-900 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. ヒーローセクション -->
+    <header class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <!-- 背景画像 -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Human Connection" class="w-full h-full object-cover">
+        </div>
+        <!-- オーバーレイ -->
+        <div class="absolute inset-0 z-10 hero-overlay"></div>
+        
+        <!-- コンテンツ -->
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+            <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight tracking-wide fade-in-up">
+                心と響き合う、<br>
+                テクノロジーの体温。
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed font-light tracking-widest fade-in-up delay-200">
+                孤独を溶かし、絆を編む。<br class="md:hidden">
+                デジタルに「共感」を宿す、新しい時代のデザイン哲学。
+            </p>
+            <div class="fade-in-up delay-400">
+                <a href="#main-content" class="inline-block px-8 py-3 border border-white/30 text-white rounded-full hover:bg-white hover:text-brand-primary transition-all duration-300 tracking-wider font-medium backdrop-blur-sm">
+                    ビジョンを見る
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. メインコンテンツエリア -->
+    <main id="main-content" class="relative">
+        
+        <!-- ミッション・ステートメント -->
+        <section class="py-24 bg-white">
+            <div class="max-w-3xl mx-auto px-6 text-center">
+                <span class="text-brand-primary font-bold tracking-[0.3em] text-sm uppercase mb-4 block">Our Mission</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-gray-900 mb-10 leading-relaxed">
+                    テクノロジーは、<br>人間の精神の拡張である。
+                </h2>
+                <p class="text-gray-600 leading-8 mb-8 font-light text-justify md:text-center">
+                    私たちは、効率性や生産性だけを追い求める技術開発に問いを投げかけます。
+                    真のイノベーションとは、人が人らしくあるための余白を作り、
+                    心の深い部分で他者とつながる喜びを再発見させるものです。
+                    私たちの目指す「共感型ソリューション」は、
+                    無機質な信号のやり取りを、温もりのある対話へと昇華させます。
+                </p>
+                <div class="w-16 h-1 bg-brand-primary mx-auto mt-12"></div>
+            </div>
+        </section>
+
+        <!-- 提供価値（共感型ソリューション） -->
+        <section class="py-24 bg-surface">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <!-- 画像エリア -->
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-brand-primary/20 rounded-2xl z-0"></div>
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Empathy Design" class="relative z-10 rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                    </div>
+                    
+                    <!-- テキストエリア -->
+                    <div>
+                        <h3 class="font-serif text-3xl text-gray-900 mb-6">
+                            機能ではなく、<br>
+                            「感情」をデザインする。
+                        </h3>
+                        <div class="space-y-8">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-2">孤独の解消</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        物理的な距離を超え、心理的な距離を縮めるUI/UX。誰かがそばにいるような、微細な気配を感じるインターフェース設計。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-2">コミュニティの育成</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        アルゴリズムによる分断ではなく、共通の価値観で緩やかに繋がるプラットフォームの構築。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-2">幸福への奉仕</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        ドーパミン的な快楽ではなく、セロトニン・オキシトシン的な持続する幸福感を醸成する体験デザイン。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 内部リンクエリア（関連コンテンツ・導入事例） -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h3 class="font-serif text-3xl text-gray-900">共感を実装する</h3>
+                    <p class="mt-4 text-gray-500 tracking-wide">私たちが描く未来と、具体的なアプローチ。</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Link Card 1 -->
+                    <a href="#" class="group block relative h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Case Study" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-primary/90 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <span class="text-brand-accent text-xs font-bold tracking-widest uppercase mb-2 block">Case Study</span>
+                            <h4 class="font-serif text-xl text-white font-medium mb-2 group-hover:translate-x-2 transition-transform">高齢者と若者を繋ぐ<br>「声のプラットフォーム」</h4>
+                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+                                デジタルデバイドを超え、世代間の対話を促す音声SNSの開発事例。
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- Link Card 2 -->
+                    <a href="#" class="group block relative h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Philosophy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <span class="text-brand-accent text-xs font-bold tracking-widest uppercase mb-2 block">Philosophy</span>
+                            <h4 class="font-serif text-xl text-white font-medium mb-2 group-hover:translate-x-2 transition-transform">ウェルビーイング・コード</h4>
+                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+                                ユーザーの精神的健康を第一に考えた、独自の設計倫理規定について。
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- Link Card 3 -->
+                    <a href="#" class="group block relative h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Service" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-primary/90 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <span class="text-brand-accent text-xs font-bold tracking-widest uppercase mb-2 block">Service</span>
+                            <h4 class="font-serif text-xl text-white font-medium mb-2 group-hover:translate-x-2 transition-transform">エモーショナル・デザイン診断</h4>
+                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+                                御社のサービスがどれだけユーザーの心に寄り添えているかを分析します。
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="mt-16 text-center">
+                    <a href="#" class="inline-flex items-center text-brand-primary hover:text-brand-dark font-medium transition-colors border-b border-brand-primary pb-1">
+                        すべてのソリューションを見る
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTAセクション -->
+        <section class="py-24 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="font-serif text-3xl text-gray-900 mb-6">真の幸福に奉仕するイノベーションを、共に。</h2>
+                <p class="text-gray-600 mb-10 leading-relaxed">
+                    技術の進化は、優しさの進化であるべきです。<br>
+                    あなたのプロジェクトに、人間味あふれるデジタルの息吹を吹き込みませんか。
+                </p>
+                <a href="#" class="inline-block px-10 py-4 bg-brand-primary text-white rounded-full hover:bg-brand-dark shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 font-medium tracking-wide">
+                    プロジェクトについて相談する
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 5. フッター -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t border-brand-primary/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- ブランド情報 -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 bg-white text-brand-primary rounded-full flex items-center justify-center font-serif font-bold">H</div>
+                        <span class="font-serif text-lg tracking-widest font-bold">HTD</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        ヒューマニティ・テック・デザイン<br>
+                        テクノロジーを精神の拡張へ。
+                    </p>
+                </div>
+
+                <!-- リンク -->
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-brand-accent mb-6">Explore</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">私たちについて</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">サービス一覧</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">導入事例</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">採用情報</a></li>
+                    </ul>
+                </div>
+
+                <!-- コンタクト -->
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-brand-accent mb-6">Contact</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li>東京都港区南青山 1-2-3</li>
+                        <li>hello@humanity-tech.design</li>
+                        <li>03-1234-5678</li>
+                    </ul>
+                </div>
+
+                <!-- ニュースレター（簡易） -->
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-brand-accent mb-6">Stay Connected</h4>
+                    <p class="text-gray-400 text-xs mb-4">最新のインサイトをお届けします。</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email Address" class="bg-gray-800 text-white px-4 py-2 text-sm rounded-l-md w-full focus:outline-none focus:ring-1 focus:ring-brand-primary">
+                        <button class="bg-brand-primary px-4 py-2 text-sm rounded-r-md hover:bg-brand-light transition-colors">送信</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <!-- 著作権表示 -->
+                <p class="text-gray-500 text-xs text-center md:text-left">
+                    &copy; 2023 Humanity Tech Design. All Rights Reserved.
+                </p>
+                
+                <!-- SNSアイコン -->
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465 1.067-.047 1.409-.06 3.809-.06h.63zm1.418 2.003l-.086.004c-2.667.06-3.08.09-4.116.336a2.95 2.95 0 00-1.75 1.753c-.246 1.035-.274 1.449-.336 4.115l-.004.086c-.033 2.668-.06 3.081-.336 4.116a2.95 2.95 0 001.753 1.75c1.036.246 1.45.274 4.115.336l.086.004c2.668.033 3.081.06 4.116.336a2.95 2.95 0 001.75-1.753c.246-1.036.274-1.45.336-4.115l.004-.086c.033-2.668.06-3.081.336-4.116a2.95 2.95 0 00-1.753-1.75c-1.035-.246-1.449-.274-4.115-.336l-.086-.004zm-4.766 3.682a4.83 4.83 0 110 9.66 4.83 4.83 0 010-9.66zm0 1.957a2.872 2.872 0 100 5.744 2.872 2.872 0 000-5.744z" clip-rule="evenodd" /></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
