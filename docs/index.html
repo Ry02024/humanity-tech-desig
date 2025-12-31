@@ -1,0 +1,342 @@
+```html
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ヒューマニティ・テック・デザイン | 精神の拡張と幸福のためのイノベーション</title>
+    <meta name="description" content="テクノロジーを人間の精神の拡張として位置づけ、真の幸福に奉仕するイノベーションを追求するヒューマニティ・テック・デザインの公式サイト。">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#4B0082', // Indigo
+                            light: '#6A0DAD',
+                            dark: '#300054',
+                            accent: '#FFD700', // Gold for subtle accents
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        serif: ['"Shippori Mincho"', 'serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to right bottom, rgba(75, 0, 130, 0.9), rgba(30, 41, 59, 0.9)), url('https://images.unsplash.com/photo-1519681393798-3828fb4090bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="font-sans text-slate-700 antialiased bg-white selection:bg-brand selection:text-white">
+
+    <!-- 1. Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+                    <div class="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white group-hover:scale-105 transition-transform duration-300 shadow-lg">
+                        <i class="fa-solid fa-infinity text-xl"></i>
+                    </div>
+                    <span class="font-serif font-bold text-xl tracking-wider text-slate-900 group-hover:text-brand transition-colors">
+                        Humanity Tech Design
+                    </span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-sm font-medium text-slate-600 hover:text-brand transition-colors relative group">
+                        私たちの使命
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="text-sm font-medium text-slate-600 hover:text-brand transition-colors relative group">
+                        サービス
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="text-sm font-medium text-slate-600 hover:text-brand transition-colors relative group">
+                        プロジェクト
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="px-6 py-2.5 bg-brand text-white text-sm font-medium rounded-full shadow-md hover:bg-brand-light hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        お問い合わせ
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-600 hover:text-brand focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/10"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+            <span class="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-white text-xs font-medium mb-6 backdrop-blur-sm fade-in-up">
+                Technology for the Human Spirit
+            </span>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight text-shadow fade-in-up delay-100">
+                精神の拡張、<br/>
+                <span class="text-indigo-200">真の幸福</span>への革新。
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-200 font-light leading-relaxed fade-in-up delay-200">
+                私たちは、テクノロジーを単なるツールではなく、<br class="hidden md:inline">
+                人間の可能性を解き放ち、心豊かな未来を共創するためのパートナーと定義します。
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 fade-in-up delay-300">
+                <a href="#about" class="px-8 py-4 bg-white text-brand font-bold rounded-full shadow-lg hover:bg-slate-50 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-arrow-down"></i>
+                    ビジョンを見る
+                </a>
+                <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center">
+                    共創のご相談
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- 3. Main Content Area -->
+    <main>
+        <!-- Philosophy / Intro -->
+        <section id="about" class="py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <i class="fa-solid fa-fingerprint text-brand text-4xl mb-6 opacity-80"></i>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+                    テクノロジーに、<br/>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand to-purple-600">体温と哲学</span>を。
+                </h2>
+                <div class="prose prose-lg text-slate-600 mx-auto leading-loose">
+                    <p class="mb-6">
+                        デジタル化が加速する現代において、私たちは問い続けます。「その技術は、人を幸せにしているか？」と。<br>
+                        ヒューマニティ・テック・デザインは、効率性や生産性のみを追求するのではなく、共感、ウェルビーイング、そして持続可能な社会との調和を最優先に考えます。
+                    </p>
+                    <p>
+                        私たちはデザインとエンジニアリングの力で、テクノロジーを冷たい機械から、<br>あなたの精神を支え、拡張する温かい存在へと昇華させます。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Grid -->
+        <section class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-slate-100 group">
+                        <div class="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center text-brand mb-6 group-hover:bg-brand group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-heart-pulse text-2xl"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-900 mb-4">本質的なウェルビーイング</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            短期的な快楽ではなく、長期的な心の充実に寄与するUXを設計します。デジタルデトックスからマインドフルネス統合まで、心の健康を第一に。
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-slate-100 group">
+                        <div class="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center text-brand mb-6 group-hover:bg-brand group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-brain text-2xl"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-900 mb-4">拡張知能 (Extended Intellect)</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            AIは人間の代替ではなく、人間の創造性を拡張するパートナーです。倫理的かつ直感的なインターフェースで、人とAIの共生を実現します。
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-slate-100 group">
+                        <div class="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center text-brand mb-6 group-hover:bg-brand group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-users-rays text-2xl"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-900 mb-4">社会的共鳴</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            個人の幸福は社会の幸福とつながっています。コミュニティの絆を深め、孤立を防ぐテクノロジーのあり方を模索し、実装します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Break Section -->
+        <section class="relative py-32 bg-fixed bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="absolute inset-0 bg-brand/80 mix-blend-multiply"></div>
+            <div class="relative max-w-5xl mx-auto px-4 text-center">
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
+                    未来は、予測するものではなく、<br>
+                    <span class="text-indigo-200">意志を持ってデザインするもの</span>。
+                </h2>
+                <button class="px-8 py-3 border border-white text-white rounded-full hover:bg-white hover:text-brand transition-colors uppercase tracking-widest text-sm font-bold">
+                    Our Philosophy
+                </button>
+            </div>
+        </section>
+
+        <!-- 4. Internal Link Area (Provided Code Integration) -->
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <!-- Provided Code Block Start -->
+            <section class="my-12 p-8 bg-slate-50 rounded-3xl border border-slate-200 shadow-sm">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-800 font-serif">
+                    <span class="w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm shadow-md">
+                        <i class="fa-solid fa-link"></i>
+                    </span>
+                    内部リンク・コンテンツ
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+                    <a href="vision-and-philosophy.html" class="group flex items-center justify-between p-4 bg-white rounded-xl border border-slate-100 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <span class="font-medium text-slate-700 group-hover:text-indigo-600">ビジョンと哲学</span>
+                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-indigo-400 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+            
+                    <a href="empathy-solutions.html" class="group flex items-center justify-between p-4 bg-white rounded-xl border border-slate-100 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <span class="font-medium text-slate-700 group-hover:text-indigo-600">共感型ソリューション</span>
+                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-indigo-400 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+            
+                    <a href="human-design-process.html" class="group flex items-center justify-between p-4 bg-white rounded-xl border border-slate-100 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <span class="font-medium text-slate-700 group-hover:text-indigo-600">人間中心の設計プロセス</span>
+                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-indigo-400 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+            
+                    <a href="impact-and-co-creation.html" class="group flex items-center justify-between p-4 bg-white rounded-xl border border-slate-100 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <span class="font-medium text-slate-700 group-hover:text-indigo-600">社会へのインパクトと共創</span>
+                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-indigo-400 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+            
+                </div>
+            </section>
+            <!-- Provided Code Block End -->
+        </div>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="font-serif text-3xl font-bold text-slate-900 mb-6">新しい時代を、共に創りませんか？</h2>
+                <p class="text-slate-600 mb-10 text-lg">
+                    私たちは常に、同じ志を持つパートナー、クリエイター、そしてクライアントを探しています。<br>
+                    あなたのプロジェクトに、ヒューマニティの魂を吹き込みましょう。
+                </p>
+                <form class="max-w-md mx-auto flex gap-2">
+                    <input type="email" placeholder="メールアドレスを入力" class="flex-1 px-4 py-3 rounded-full border border-slate-300 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand">
+                    <button type="submit" class="px-6 py-3 bg-brand text-white font-bold rounded-full hover:bg-brand-light transition-colors shadow-lg whitespace-nowrap">
+                        登録する
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 5. Footer -->
+    <footer class="bg-slate-900 text-white pt-16 pb-8 border-t border-brand/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 bg-brand rounded-full flex items-center justify-center text-white">
+                            <i class="fa-solid fa-infinity text-sm"></i>
+                        </div>
+                        <span class="font-serif font-bold text-xl tracking-wider">Humanity Tech Design</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                        テクノロジーを人間の精神の拡張として位置づけ、真の幸福に奉仕するイノベーションを追求するデザインファーム。東京と京都を拠点に活動中。
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-bold mb-4 text-slate-200">探求する</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">会社概要</a></li>
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">サービス一覧</a></li>
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">ジャーナル</a></li>
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">採用情報</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold mb-4 text-slate-200">コンタクト</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><i class="fa-regular fa-envelope mr-2"></i> hello@humanity-tech.jp</li>
+                        <li><i class="fa-solid fa-location-dot mr-2"></i> 東京都港区南青山...</li>
+                    </ul>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand transition-colors text-white">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand transition-colors text-white">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand transition-colors text-white">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>&copy; 2023 Humanity Tech Design. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a>
+                    <a href="#" class="hover:text-white transition-colors">利用規約</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
