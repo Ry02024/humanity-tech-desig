@@ -1,0 +1,367 @@
+```html
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人間中心の設計プロセス | ヒューマニティ・テック・デザイン</title>
+    <meta name="description" content="テクノロジーを人間の精神の拡張として捉え、倫理性と創造性を重んじた独自のデザインアプローチと開発手法について解説します。">
+    
+    <!-- Google Fonts: 高級感と可読性のためのフォント選定 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Theme Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#4B0082', // Indigo/Deep Purple
+                            light: '#6A0DAD',
+                            dark: '#320056',
+                            bg: '#F9FAFB',
+                        },
+                        accent: {
+                            gold: '#C5A059'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        serif: ['"Shippori Mincho"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* カスタムユーティリティとアニメーション */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero-pattern {
+            background-image: radial-gradient(circle at 20% 150%, #6A0DAD 0%, #4B0082 50%, #000000 100%);
+        }
+
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #4B0082, #6A0DAD);
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="bg-brand-bg text-slate-800 antialiased font-sans flex flex-col min-h-screen">
+
+    <!-- 1. モダンで固定されたナビゲーションバー -->
+    <nav class="fixed w-full top-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- ロゴ -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+                    <div class="w-8 h-8 bg-brand rounded-sm flex items-center justify-center transform group-hover:rotate-45 transition-transform duration-500">
+                        <span class="text-white font-serif text-lg">H</span>
+                    </div>
+                    <span class="font-serif font-semibold text-lg tracking-widest text-slate-900 group-hover:text-brand transition-colors">
+                        HUMANITY TECH
+                    </span>
+                </div>
+                
+                <!-- デスクトップメニュー (シンプル化) -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-slate-600 hover:text-brand text-sm font-medium tracking-wider transition-colors">PHILOSOPHY</a>
+                    <a href="#" class="text-slate-600 hover:text-brand text-sm font-medium tracking-wider transition-colors">PROCESS</a>
+                    <a href="#" class="text-slate-600 hover:text-brand text-sm font-medium tracking-wider transition-colors">WORKS</a>
+                    <a href="#" class="px-5 py-2 border border-brand text-brand hover:bg-brand hover:text-white transition-all duration-300 text-sm font-medium rounded-sm">
+                        CONTACT
+                    </a>
+                </div>
+
+                <!-- モバイルメニューハンバーガー (見た目のみ) -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. ヒーローセクション -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 hero-pattern overflow-hidden">
+        <!-- 装飾的な背景要素 -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-white opacity-5 transform -skew-x-12 translate-x-1/4"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <p class="fade-in-up text-accent-gold font-serif tracking-[0.2em] text-sm md:text-base mb-6 font-semibold">
+                HUMAN-CENTERED DESIGN PROCESS
+            </p>
+            <h1 class="fade-in-up delay-100 font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-tight mb-8">
+                人間中心の設計プロセス
+            </h1>
+            <p class="fade-in-up delay-200 text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed font-light">
+                最新技術を「人の代替」ではなく「拡張」として捉える。<br class="hidden md:inline">
+                倫理性と創造性を重んじ、真の幸福に奉仕するイノベーションへ。
+            </p>
+            <div class="fade-in-up delay-300 mt-10">
+                <div class="h-16 w-[1px] bg-accent-gold mx-auto"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. メインコンテンツエリア -->
+    <main class="flex-grow">
+        
+        <!-- コンセプト導入 -->
+        <section class="py-20 bg-white">
+            <div class="max-w-3xl mx-auto px-6">
+                <p class="text-brand font-serif text-lg mb-4">Core Philosophy</p>
+                <h2 class="text-3xl font-serif text-slate-900 mb-8 leading-snug">
+                    テクノロジーは、<br>人間の精神を宿す器であるべきです。
+                </h2>
+                <div class="prose prose-lg text-slate-600 leading-8">
+                    <p class="mb-6">
+                        私たちは、効率性や速度のみを追求する開発を否定します。真のイノベーションとは、ユーザーの時間を奪うものではなく、ユーザーの人生を豊かにする時間を取り戻すものです。
+                    </p>
+                    <p>
+                        AIや自動化技術が進化する現代において、ヒューマニティ・テック・デザインは「Ethical Tech（倫理的技術）」を提唱します。それは、人間の自律性を尊重し、創造性を拡張するための補助線として機能するデザインです。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3つの柱 (Grid Layout) -->
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Column 1 -->
+                    <div class="bg-white p-10 shadow-sm border-t-4 border-brand hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-4xl mb-6 text-brand">01</div>
+                        <h3 class="text-xl font-serif font-bold text-slate-900 mb-4">共感と倫理</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            データポイントではなく、一人の人間としてユーザーを理解します。プライバシーを基本的人権として守り、搾取的なパターン（ダークパターン）を徹底的に排除したUI/UXを設計します。
+                        </p>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="bg-white p-10 shadow-sm border-t-4 border-accent-gold hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-4xl mb-6 text-accent-gold">02</div>
+                        <h3 class="text-xl font-serif font-bold text-slate-900 mb-4">能力の拡張</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            AIは人間の仕事を奪うものではなく、人間の能力を補完する「パートナー」として設計します。複雑なタスクを直感的な操作に変換し、ユーザーの創造的フローを妨げないインターフェースを構築します。
+                        </p>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="bg-white p-10 shadow-sm border-t-4 border-slate-800 hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-4xl mb-6 text-slate-800">03</div>
+                        <h3 class="text-xl font-serif font-bold text-slate-900 mb-4">美と機能の調和</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            機能的であることは当然です。私たちはそこに「美しさ」という価値を付加します。美しいデザインは信頼を生み、使う人の心に平穏をもたらします。細部へのこだわりが、ブランドの品格を作ります。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 開発プロセスフロー -->
+        <section class="py-24 bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-serif text-slate-900 mb-6">対話から始まる、<br>循環型の創造プロセス</h2>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            私たちの開発は、コードを書く前から始まっています。深い対話（ダイアローグ）を通じて潜在的なニーズを掘り起こし、プロトタイピングとフィードバックを繰り返すことで、本質的な解決策へと磨き上げます。
+                        </p>
+                        <ul class="space-y-4 mt-8">
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-brand rounded-full mr-4"></span>
+                                <span class="font-medium text-slate-800">Observation（深い観察）</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-brand opacity-70 rounded-full mr-4"></span>
+                                <span class="font-medium text-slate-800">Ideation（倫理的発想）</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-brand opacity-50 rounded-full mr-4"></span>
+                                <span class="font-medium text-slate-800">Prototyping（具現化と検証）</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-brand opacity-30 rounded-full mr-4"></span>
+                                <span class="font-medium text-slate-800">Implementation（実装と洗練）</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 relative">
+                        <!-- 抽象的なビジュアル表現 -->
+                        <div class="aspect-square rounded-full bg-gradient-to-tr from-brand to-accent-gold opacity-10 absolute top-0 right-0 w-full animate-pulse"></div>
+                        <div class="relative z-10 p-8 border border-slate-100 bg-white/50 backdrop-blur-sm shadow-xl rounded-lg">
+                            <div class="font-serif text-2xl text-slate-400 mb-4">"Technology serving humanity."</div>
+                            <div class="h-1 w-20 bg-brand mb-6"></div>
+                            <p class="text-sm text-slate-500 leading-loose">
+                                最終的なプロダクトは、まるで身体の一部のように馴染むものでなければなりません。<br>
+                                私たちが目指すのは、テクノロジーの存在を感じさせないほどに自然で、かつ強力な支援です。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 内部リンクエリア（関連インサイト） -->
+        <section class="py-20 bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-end justify-between mb-12 border-b border-slate-700 pb-4">
+                    <h2 class="text-2xl font-serif">Related Insights</h2>
+                    <span class="text-sm text-slate-400 font-sans tracking-wider">思想を深める</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Link Card 1 -->
+                    <a href="#" class="group block">
+                        <div class="relative overflow-hidden h-48 bg-slate-800 mb-4">
+                            <div class="absolute inset-0 bg-brand opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <span class="text-xs font-bold bg-accent-gold text-slate-900 px-2 py-1">METHOD</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-serif group-hover:text-accent-gold transition-colors duration-300">
+                            感情をコードする：UXにおける共感の実装方法
+                        </h3>
+                        <p class="text-sm text-slate-400 mt-2 flex items-center">
+                            Read More 
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </p>
+                    </a>
+
+                    <!-- Link Card 2 -->
+                    <a href="#" class="group block">
+                        <div class="relative overflow-hidden h-48 bg-slate-800 mb-4">
+                            <div class="absolute inset-0 bg-brand opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <span class="text-xs font-bold bg-white text-slate-900 px-2 py-1">ETHICS</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-serif group-hover:text-accent-gold transition-colors duration-300">
+                            デジタル・ウェルビーイングと持続可能な開発
+                        </h3>
+                        <p class="text-sm text-slate-400 mt-2 flex items-center">
+                            Read More 
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </p>
+                    </a>
+
+                    <!-- Link Card 3 -->
+                    <a href="#" class="group block">
+                        <div class="relative overflow-hidden h-48 bg-slate-800 mb-4">
+                            <div class="absolute inset-0 bg-brand opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <span class="text-xs font-bold bg-brand text-white px-2 py-1">FUTURE</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-serif group-hover:text-accent-gold transition-colors duration-300">
+                            2030年のインターフェース：画面を超えた体験へ
+                        </h3>
+                        <p class="text-sm text-slate-400 mt-2 flex items-center">
+                            Read More 
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 bg-brand-light/5 text-center">
+            <div class="max-w-3xl mx-auto px-6">
+                <h2 class="text-3xl font-serif text-slate-900 mb-6">未来を、共にデザインしませんか？</h2>
+                <p class="text-slate-600 mb-10">
+                    あなたのビジョンを、倫理的かつ美しいテクノロジーで具現化します。<br>
+                    まずは対話から始めましょう。
+                </p>
+                <a href="#" class="inline-block px-10 py-4 bg-brand text-white font-medium tracking-wide shadow-lg hover:bg-brand-dark hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                    お問い合わせ
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 5. 著作権表示とSNSアイコンを含むフッター -->
+    <footer class="bg-black text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+                <div class="mb-8 md:mb-0">
+                    <span class="font-serif text-xl tracking-widest text-white block mb-2">HUMANITY TECH</span>
+                    <p class="text-slate-500 text-sm">Design for Human Spirit.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <!-- Twitter / X -->
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465 1.067-.047 1.407-.06 3.808-.06zm0 1.8c-2.43 0-2.748.01-3.71.054-.99.045-1.528.23-1.885.37-.478.187-.821.41-1.18.77-.359.36-.583.702-.77 1.18-.139.356-.324.894-.37 1.884-.044.962-.054 1.28-.054 3.709 0 2.43.01 2.748.054 3.71.045.99.23 1.528.37 1.885.187.478.41.821.77 1.18.36.359.702.583 1.18.77.356.139.894.324 1.884.37.962.044 1.28.054 3.709.054 2.43 0 2.748-.01 3.71-.054.99-.045 1.528-.23 1.885-.37.478-.187.821-.41 1.18-.77.359-.36.583-.702.77-1.18.139-.356.324-.894.37-1.884.044-.962.054-1.28.054-3.709 0-2.43-.01-2.748-.054-3.71-.045-.99-.23-1.528-.37-1.885-.187-.478-.41-.821-.77-1.18-.36-.359-.702-.583-1.18-.77-.356-.139-.894-.324-1.884-.37-.963-.044-1.28-.054-3.71-.054zm0 4.377a5.823 5.823 0 100 11.646 5.823 5.823 0 000-11.646zm0 1.8a4.023 4.023 0 110 8.046 4.023 4.023 0 010-8.046zm5.83-4.132a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+                <p>&copy; 2023 Humanity Tech Design. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```
