@@ -1,0 +1,367 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社会へのインパクトと共創 | ヒューマニティ・テック・デザイン</title>
+    <meta name="description" content="技術を通じて実現した人間らしい社会との繋がりや、パートナーシップを通じた共創事例、コミュニティへの貢献を共有します。">
+    
+    <!-- Google Fonts: 日本語の高級感と可読性を両立 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (CDN for standalone usage) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4B0082',      // 指定テーマカラー: Indigo
+                        primaryDark: '#2a004a',
+                        primaryLight: '#7B2CBF',
+                        accent: '#C5A059',       // 高級感のあるゴールドアクセント
+                        surface: '#F9FAFB',
+                        textMain: '#1F2937',
+                        textMuted: '#6B7280',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        serif: ['"Shippori Mincho"', 'serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to right bottom, rgba(75, 0, 130, 0.8), rgba(20, 20, 20, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* カスタムスタイリングとアニメーション */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #1F2937;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Shippori Mincho', serif;
+        }
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        
+        /* スムーズなスクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-surface antialiased flex flex-col min-h-screen">
+
+    <!-- 1. ナビゲーションバー -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- ロゴ -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+                    <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center shadow-lg group-hover:bg-primaryDark transition-colors">
+                        <i class="fa-solid fa-seedling text-lg"></i>
+                    </div>
+                    <span class="font-serif font-bold text-xl tracking-wider text-gray-900 group-hover:text-primary transition-colors">
+                        Humanity Tech Design
+                    </span>
+                </div>
+
+                <!-- デスクトップメニュー -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors">哲学</a>
+                    <a href="#" class="text-sm font-medium text-primary border-b-2 border-primary pb-1">インパクトと共創</a>
+                    <a href="#" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors">プロジェクト</a>
+                    <a href="#" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors">ジャーナル</a>
+                    <a href="#" class="ml-4 px-6 py-2 bg-primary text-white text-sm font-medium rounded-full shadow-md hover:bg-primaryDark transition-all transform hover:-translate-y-0.5">
+                        お問い合わせ
+                    </a>
+                </div>
+
+                <!-- モバイルメニューボタン (デザインのみ) -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. ヒーローセクション -->
+    <header class="relative pt-20 h-[80vh] min-h-[600px] flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-no-repeat bg-fixed">
+        <div class="absolute inset-0 bg-black/30"></div> <!-- 追加のオーバーレイ -->
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <span class="block text-accent font-medium tracking-[0.2em] mb-4 uppercase text-sm fade-in-up">Social Impact & Co-creation</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight fade-in-up delay-100">
+                社会へのインパクトと<br/>真の共創
+            </h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-200 font-light max-w-2xl mx-auto leading-relaxed fade-in-up delay-200">
+                テクノロジーは、人の心と響き合うために。私たちは技術を人間の精神の拡張として位置づけ、真の幸福に奉仕するイノベーションを追求します。
+            </p>
+            <div class="mt-10 fade-in-up delay-300">
+                <a href="#mission" class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/30 text-white hover:bg-white hover:text-primary transition-all duration-300">
+                    <i class="fa-solid fa-arrow-down animate-bounce"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. メインコンテンツエリア -->
+    
+    <!-- ミッションステートメント -->
+    <section id="mission" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-primary/10 rounded-full z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="チームでの対話" class="relative z-10 rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">人間中心の技術革新</h2>
+                    <p class="text-textMuted text-lg leading-relaxed mb-6">
+                        私たちにとってテクノロジーとは、単なる効率化のツールではありません。それは人と人、人と社会、そして人と自然をつなぐ架け橋です。
+                    </p>
+                    <p class="text-textMuted text-lg leading-relaxed mb-8">
+                        「ヒューマニティ・テック・デザイン」は、デジタルな接点に温もりを宿し、コミュニティの結束を強めるデザインを創造します。利益の追求だけでなく、社会全体のウェルビーイング（幸福）を最大化することが、私たちの使命です。
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col">
+                            <span class="text-4xl font-serif font-bold text-accent">50+</span>
+                            <span class="text-sm text-gray-500 mt-1">地域コミュニティとの連携</span>
+                        </div>
+                        <div class="w-px bg-gray-300 h-12 mx-4"></div>
+                        <div class="flex flex-col">
+                            <span class="text-4xl font-serif font-bold text-accent">120%</span>
+                            <span class="text-sm text-gray-500 mt-1">社会的インパクト指標</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 共創事例セクション (Cards) -->
+    <section class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary font-medium tracking-widest uppercase text-sm">Partnership Case Studies</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">共創が生み出す未来</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Case 1 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="教育支援" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-bold text-accent uppercase tracking-wider mb-2 block">Education & Tech</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">次世代のための教育プラットフォーム</h3>
+                        <p class="text-gray-600 mb-6 line-clamp-3">
+                            地方自治体と連携し、地理的な制約を超えた「学びの場」を構築。VR技術を活用し、子供たちの想像力を刺激するカリキュラムを共同開発しました。
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-accent transition-colors">
+                            詳細を見る <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Case 2 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="伝統工芸とAI" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-bold text-accent uppercase tracking-wider mb-2 block">Tradition & AI</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">伝統工芸の継承とAI</h3>
+                        <p class="text-gray-600 mb-6 line-clamp-3">
+                            熟練職人の技をAIで解析・保存するプロジェクト。伝統技術のデジタルアーカイブ化により、後継者不足の課題解決に貢献しています。
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-accent transition-colors">
+                            詳細を見る <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Case 3 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="サステナブルコミュニティ" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-bold text-accent uppercase tracking-wider mb-2 block">Sustainability</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">循環型コミュニティの設計</h3>
+                        <p class="text-gray-600 mb-6 line-clamp-3">
+                            エネルギー消費を最適化するスマートシティ基盤のUI/UX設計を担当。住民が直感的に環境貢献を感じられるインターフェースを実現しました。
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-accent transition-colors">
+                            詳細を見る <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- パートナーシップCTA -->
+    <section class="py-24 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
+            </svg>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">共に、より良い社会をデザインしませんか？</h2>
+            <p class="text-indigo-100 text-lg mb-10 leading-relaxed">
+                私たちのビジョンに共感いただけるパートナーを常に探しています。<br class="hidden md:inline"/>
+                技術と人間性が調和する未来を、あなたの組織と共に創り上げたいと願っています。
+            </p>
+            <a href="#" class="inline-block px-10 py-4 bg-accent text-white font-bold rounded-full shadow-lg hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105">
+                パートナーシップについて問い合わせる
+            </a>
+        </div>
+    </section>
+
+    <!-- 4. 内部リンクエリア (Main Contentの一部として、最後に配置) -->
+    <section class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-10">
+                <h3 class="text-2xl font-bold text-gray-800 font-serif">Deep Dive - 私たちの思考を探る</h3>
+                <a href="#" class="text-primary hover:text-primaryDark text-sm font-medium">すべて見る &rarr;</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Internal Link Card 1 -->
+                <a href="#" class="flex flex-col md:flex-row bg-white border border-gray-100 p-6 rounded-lg hover:shadow-md transition-shadow group">
+                    <div class="mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-brain text-2xl"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">テクノロジーと倫理</h4>
+                        <p class="text-sm text-gray-500">
+                            イノベーションの過程で私たちが常に問い続ける倫理的課題と、その解決へのアプローチについて。
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Internal Link Card 2 -->
+                <a href="#" class="flex flex-col md:flex-row bg-white border border-gray-100 p-6 rounded-lg hover:shadow-md transition-shadow group">
+                    <div class="mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-users-rays text-2xl"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">コミュニティ主導のデザイン</h4>
+                        <p class="text-sm text-gray-500">
+                            トップダウンではなく、コミュニティの内側から湧き上がるニーズを形にするプロセス。
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. フッター -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- ブランド情報 -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-seedling text-primary text-2xl"></i>
+                        <span class="font-serif font-bold text-xl tracking-wider">Humanity Tech</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        テクノロジーを人間の精神の拡張として位置づけ、真の幸福に奉仕するイノベーションを追求します。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa-brands fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa-brands fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa-brands fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa-brands fa-instagram text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- リンク集 1 -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-6">Explore</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors text-sm">私たちのミッション</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors text-sm">サービス</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors text-sm">共創事例</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors text-sm">ニュース & インサイト</a></li>
+                    </ul>
+                </div>
+
+                <!-- リンク集 2 -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors text-sm">会社概要</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors text-sm">採用情報</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors text-sm">プライバシーポリシー</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors text-sm">お問い合わせ</a></li>
+                    </ul>
+                </div>
+
+                <!-- ニュースレター -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-6">Newsletter</h4>
+                    <p class="text-gray-400 text-xs mb-4">最新のイノベーション情報をお届けします。</p>
+                    <form class="flex flex-col gap-2">
+                        <input type="email" placeholder="メールアドレス" class="bg-gray-800 text-white px-4 py-2 rounded focus:outline-none focus:ring-1 focus:ring-primary text-sm border border-gray-700">
+                        <button type="button" class="bg-primary text-white px-4 py-2 rounded text-sm font-medium hover:bg-primaryLight transition-colors">登録する</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-xs">&copy; 2023 Humanity Tech Design. All rights reserved.</p>
+                <p class="text-gray-600 text-xs mt-2 md:mt-0 font-serif">Designed for Wellbeing.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
